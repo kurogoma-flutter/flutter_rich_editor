@@ -14,30 +14,42 @@ class _RichTextEditorState extends State<RichTextEditor> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Rich Text Editor'),
-      ),
-      body: quill.QuillEditor(
-        controller: _controller,
-        scrollController: ScrollController(),
-        scrollable: true,
-        focusNode: FocusNode(),
-        autoFocus: true,
-        readOnly: false,
-        expands: false,
-        padding: EdgeInsets.zero,
-        enableInteractiveSelection: true,
-        // You can customize the toolbar with the following optional props:
-        // toolbar: QuillToolbar.basic(),
-        // toolbar: QuillToolbar.none(),
-        // toolbar: QuillToolbar.custom(...),
-      ),
-      floatingActionButton: FloatingActionButton(
-        child: const Icon(Icons.save),
-        onPressed: () {
-          final contents = _controller.document.toPlainText();
-          // Do something with the contents
-        },
+      body: Container(
+        padding: const EdgeInsets.all(8),
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.grey),
+          borderRadius: BorderRadius.circular(4),
+        ),
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width * 0.6,
+          height: MediaQuery.of(context).size.height * 0.6,
+          child: Column(
+            children: [
+              quill.QuillToolbar.basic(controller: _controller),
+              const Padding(
+                padding: EdgeInsets.symmetric(vertical: 8),
+                child: Divider(
+                  height: 1,
+                  color: Colors.grey,
+                ),
+              ),
+              Expanded(
+                child: quill.QuillEditor(
+                  controller: _controller,
+                  scrollController: ScrollController(),
+                  scrollable: true,
+                  focusNode: FocusNode(),
+                  autoFocus: true,
+                  readOnly: false,
+                  expands: false,
+                  padding: const EdgeInsets.all(8),
+                  enableInteractiveSelection: true,
+                  showCursor: true,
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

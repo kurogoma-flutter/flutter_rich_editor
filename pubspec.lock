@@ -352,14 +352,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.8.2"
-  path_provider:
-    dependency: "direct main"
-    description:
-      name: path_provider
-      sha256: "2dc54a647fcace8c75e9d58cbc648f0c49fa1f160e7c574209e91817c4155580"
-      url: "https://pub.dev"
-    source: hosted
-    version: "1.2.0"
   pedantic:
     dependency: transitive
     description:

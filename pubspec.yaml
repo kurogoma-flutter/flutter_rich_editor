@@ -38,7 +38,6 @@ dependencies:
   flutter_quill: ^6.4.4
   file_picker: ^3.0.4
   filesystem_picker: ^3.1.0
-  path_provider: ^1.2.0
 
 dev_dependencies:
   flutter_test:
